@@ -65,7 +65,7 @@ function paint() {
   container.addEventListener('mousedown', function() {
     mouseState = true;
   });
-  container.addEventListener('mouseup', function() {
+  body.addEventListener('mouseup', function() {
     mouseState = false;
   });
   if (mouseState === true) {
