@@ -6,6 +6,8 @@ function newColor() {
 }
   var body = document.getElementsByTagName("body")[0];
   var container = document.createElement("div");
+  container.style.border = '4px solid black';
+  container.style.margin = '0 auto';
   container.style.width = '793px';
   container.style.height = '486px';
   container.style.backgroundColor = 'black';
@@ -26,9 +28,11 @@ function newColor() {
 
 // color selector
 var colorCont = document.createElement('div');
+colorCont.style.margin = '0 auto';
 colorCont.style.width = '793px';
 colorCont.style.height = '100px';
 colorCont.style.backgroundColor = 'black';
+colorCont.style.border = '4px solid black';
 body.appendChild(colorCont);
 var colors = ['red', 'yellow', 'orange', 'green', 'blue', 'purple'];
 for (var i = 0; i < colors.length; i++) {
@@ -37,14 +41,9 @@ for (var i = 0; i < colors.length; i++) {
   select.style.border = '3px solid white';
   select.style.width = '12%';
   select.style.height = '90%';
+  select.style.marginLeft = '2px';
   select.style.borderRadius = '50%';
   select.style.backgroundColor = colors[i];
   select.addEventListener('click', newColor);
   colorCont.appendChild(select);
 }
-// event
-colorCont.addEventListener('click', function (event){
-  var backColor = select.style.backgroundColor;
-
-  console.log(backColor);
-});
