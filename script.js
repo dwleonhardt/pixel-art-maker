@@ -2,6 +2,7 @@
 // art time
 var currentColor = '';
 function newColor() {
+  // console.log('worked')
   currentColor = event.target.style.backgroundColor;
 }
   var body = document.getElementsByTagName("body")[0];
@@ -17,14 +18,16 @@ function newColor() {
     tile.style.float = 'left';
     tile.style.width = '16px';
     tile.style.paddingBottom = '16px';
+    tile.addEventListener('mouseenter', paint);
     container.appendChild(tile);
     tile.style.backgroundColor = '#F0F0F0';
     tile.style.border = '1px solid black';
   }
 // event
-  container.addEventListener('click', function (event){
-    event.target.style.backgroundColor = currentColor;
-  });
+
+  // container.addEventListener('click', function (event){
+  //   event.target.style.backgroundColor = currentColor || '#F0F0F0';
+  // });
 
 // color selector
 var colorCont = document.createElement('div');
@@ -47,3 +50,30 @@ for (var i = 0; i < colors.length; i++) {
   select.addEventListener('click', newColor);
   colorCont.appendChild(select);
 }
+
+// events
+var mouseState = false;
+// function mouseCheck() {
+//   container.addEventListener('mousedown', function() {
+//     mouseState = true;
+//   });
+//   container.addEventListener('mouseup', function() {
+//     mouseState = false;
+//   });
+
+function paint() {
+  container.addEventListener('mousedown', function() {
+    mouseState = true;
+  });
+  container.addEventListener('mouseup', function() {
+    mouseState = false;
+  });
+  if (mouseState === true) {
+    event.target.style.backgroundColor = currentColor || '#F0F0F0';
+  }
+}
+
+
+// function pixelColor(event){
+//   event.target.style.backgroundColor = currentColor || '#F0F0F0';
+// }
