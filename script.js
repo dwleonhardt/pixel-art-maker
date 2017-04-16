@@ -1,5 +1,3 @@
-
-// art time
 var currentColor = '';
 var current = document.getElementsByClassName('current')[0];
 function newColor() {
@@ -9,7 +7,6 @@ function newColor() {
   var body = document.getElementsByTagName("body")[0];
   var container = document.createElement("div");
   container.className = 'container';
-  // container.style.border = '4px solid black';
   container.style.margin = '0 auto';
   container.style.width = '793px';
   container.style.height = '486px';
@@ -25,11 +22,6 @@ function newColor() {
     tile.style.backgroundColor = 'white';
     tile.style.border = '1px solid grey';
   }
-// event
-
-  // container.addEventListener('click', function (event){
-  //   event.target.style.backgroundColor = currentColor || '#F0F0F0';
-  // });
 
 // color selector
 var colorCont = document.createElement('div');
@@ -57,7 +49,7 @@ for (var i = 0; i < colors.length; i++) {
   select.addEventListener('click', brush);
   colorCont.appendChild(select);
 }
-// events
+// pixel changes
 var mouseState = false;
 function clickPaint() {
     event.target.style.backgroundColor = currentColor || 'white';
@@ -77,16 +69,13 @@ var drawing = document.createElement("div");
 drawing.className = 'drawing1';
 body.appendChild(drawing);
 
-// eraser
+// cursor changes
 var eraser = document.getElementsByClassName('eraser')[0];
 eraser.addEventListener('mousedown', function() {
   currentColor = 'white';
   body.className = 'eraserCursor';
 });
-
 var bodyClass = document.getElementsByClassName('eraserCursor');
-
-
 function brush() {
   body.className = 'brushCursor';
 }
